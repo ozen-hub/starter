@@ -16,13 +16,7 @@ import {ToastrModule} from "ngx-toastr";
   imports: [
     BrowserModule,
     FormsModule,
-    ToastrModule.forRoot(
-      {
-        maxOpened: 1,
-        progressBar: true,
-        progressAnimation: 'decreasing',
-        preventDuplicates: true,
-      })
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

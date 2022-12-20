@@ -46,7 +46,7 @@ export class AppComponent {
         'registerDate': new Date()
       }
     );
-    this.popup('Customer Saved!','Complete!','Success');
+    this.popup('Customer Saved!','Complete!','success');
   }
 
   deleteCustomer(index: number) {
@@ -58,7 +58,10 @@ export class AppComponent {
 
   popup(message: string, title: string, type: string) {
     switch (type) {
-      case 'success': this.toastrService.success(message,title); break;
+      case 'success': this.toastrService.success(message,title,{
+        timeOut:5000,
+        positionClass:'toast-bottom-right'
+      }); break;
       case 'error':
       case 'warning':
     }
