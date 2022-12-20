@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import {StudentComponent} from "./student/student.component";
 import {TeacherComponent} from "./teacher/teacher.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
@@ -16,7 +16,8 @@ import {ToastrModule} from "ngx-toastr";
   imports: [
     BrowserModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

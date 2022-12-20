@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
+import {FormControl, FormGroup} from "@angular/forms";
 
 export interface Customer {
   name: string;
@@ -17,6 +18,12 @@ export class AppComponent {
 
   constructor(private toastrService: ToastrService) {
   }
+
+  customerForm= new FormGroup({
+    name: new FormControl(''),
+    address: new FormControl(''),
+    salary: new FormControl('')
+  });
 
   customers: Customer[] = [];
   // [0],[1],[2]
@@ -38,7 +45,8 @@ export class AppComponent {
   }
 
   saveCustomer() {
-    this.customers.push(
+    console.log(this.customerForm)
+   /* this.customers.push(
       {
         'name': this.name,
         'address': this.address,
@@ -46,7 +54,7 @@ export class AppComponent {
         'registerDate': new Date()
       }
     );
-    this.popup('Customer Saved!','Complete!','success');
+    this.popup('Customer Saved!','Complete!','success');*/
   }
 
   deleteCustomer(index: number) {
