@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ToastrService} from "ngx-toastr";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export interface Customer {
   name: string;
@@ -20,9 +20,17 @@ export class AppComponent {
   }
 
   customerForm= new FormGroup({
-    name: new FormControl(''),
-    address: new FormControl(''),
-    salary: new FormControl('')
+    name: new FormControl('',[
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(10)
+    ]),
+    address: new FormControl('',[
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(10)
+    ]),
+    salary: new FormControl('',Validators.required)
   });
 
   customers: Customer[] = [];

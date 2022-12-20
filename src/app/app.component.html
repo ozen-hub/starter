@@ -1,9 +1,9 @@
 <div class="outer">
 
-    <div class="inner">
+  <div class="inner">
 
-      <form [formGroup]="customerForm"
-            (ngSubmit)="saveCustomer()">
+    <form [formGroup]="customerForm"
+          (ngSubmit)="saveCustomer()">
       <p class="alert alert-primary">
         Customer Form
       </p>
@@ -13,6 +13,10 @@
              class="form-control"
              formControlName="name"
       >
+      <p class="alert alert-danger"
+         *ngIf="customerForm?.get('name')?.invalid
+        && customerForm?.get('name')?.touched"
+      >Customer Name is required!</p>
       <br>
       <label for="address">Customer Address</label>
       <input type="text" id="address"
@@ -20,6 +24,10 @@
              class="form-control"
              formControlName="address"
       >
+      <p class="alert alert-danger"
+         *ngIf="customerForm?.get('address')?.invalid
+        && customerForm?.get('address')?.touched"
+      >Customer Address is required!</p>
       <br>
       <label for="salary">Customer Salary</label>
       <input type="number"
@@ -27,14 +35,20 @@
              class="form-control"
              formControlName="salary"
       >
+      <p class="alert alert-danger"
+         *ngIf="customerForm?.get('salary')?.invalid
+        && customerForm?.get('salary')?.touched"
+      >Customer Salary is required!</p>
       <br>
       <button
         class="btn btn-primary"
         type="submit"
-      >Save Customer</button>
-  </form>
+        [disabled]="customerForm?.invalid"
+      >Save Customer
+      </button>
+    </form>
 
-</div>
+  </div>
 </div>
 <hr>
 <div class="container" *ngIf="customers.length>0">
@@ -52,15 +66,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let tempData of customers index as position">
-      <td>{{(position+1)}}</td>
+      <td>{{(position + 1)}}</td>
       <td>{{tempData.name}}</td>
       <td>{{tempData.address}}</td>
       <td>{{tempData.salary | currency:'USD':'symbol'}}</td>
       <td>{{tempData.registerDate | date:'EEEE, MMMM d, y'}}</td>
       <td>
         <button class="btn btn-danger btn-sm"
-        (click)="deleteCustomer(position)"
-        >Delete</button>
+                (click)="deleteCustomer(position)"
+        >Delete
+        </button>
       </td>
     </tr>
     </tbody>
