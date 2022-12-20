@@ -15,6 +15,7 @@ export interface Customer {
 export class AppComponent {
 
   customers:Customer[]=[];
+  // [0],[1],[2]
 
   name='';
   address='';
