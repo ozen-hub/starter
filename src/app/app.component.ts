@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app1';
+
+  customers:any[]=[];
+
+  name='';
+  address='';
+  salary=0;
+  setName(name:string){this.name=name;}
+  setAddress(address:string){this.address=address;}
+  setSalary(salary:string){this.salary=Number.parseInt(salary);}
+
+  saveCustomer(){
+    this.customers.push(
+      {
+        'name':this.name,
+        'address':this.address,
+        'salary':this.salary
+      }
+    );
+    console.log(this.customers)
+  }
+
 }
