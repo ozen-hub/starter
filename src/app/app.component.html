@@ -52,8 +52,8 @@
       <td>{{(position+1)}}</td>
       <td>{{tempData.name}}</td>
       <td>{{tempData.address}}</td>
-      <td>{{tempData.salary}}</td>
-      <td>{{tempData.registerDate}}</td>
+      <td>{{tempData.salary | currency:'USD':'symbol'}}</td>
+      <td>{{tempData.registerDate | date:'EEEE, MMMM d, y'}}</td>
       <td>
         <button class="btn btn-danger btn-sm">Delete</button>
       </td>
